@@ -1,0 +1,17 @@
+.card {
+  width: 60%;
+  height: 50vh;
+  border: 2px solid;
+  padding: 1em;
+  margin-bottom: 2em;
+  img {
+    width: 100%;
+    height: 50%;
+    margin: 0 auto;
+    object-fit: contain;
+    margin-bottom: 1em;
+  }
+  figcaption {
+    background-color: red;
+  }
+}
