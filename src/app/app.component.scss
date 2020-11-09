@@ -1,0 +1,55 @@
+main {
+  padding: 1.5em;
+  padding-top: 3em;
+  height: 100vh;
+  overflow: hidden;
+}
+header {
+  margin-bottom: 2em;
+}
+.greeting {
+  font-size: 32px;
+}
+.tab-wrapper {
+  display: flex;
+  width: 100vw;
+  .tabs {
+    display: flex;
+    height: 100%;
+    padding-right: 0.5em;
+    background-image: linear-gradient(to right, #fff, rgba(#fff, 0.00001));
+    writing-mode: vertical-lr;
+    .tab {
+      transform: rotate(180deg);
+      margin-top: 5vh;
+      border-left: 4px solid transparent;
+      opacity: 0.66;
+      padding: 0.2em;
+      font-size: 18px;
+
+      &--active {
+        border-color: red;
+        opacity: 1;
+      }
+    }
+  }
+}
+.tab-content {
+  display: flex;
+  height: max-content;
+  overflow: hidden;
+
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+.list {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  padding-left: 3em;
+  margin-left: -2em;
+  & > * {
+    flex-shrink: 0;
+  }
+}

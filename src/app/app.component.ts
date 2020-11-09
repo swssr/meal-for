@@ -10,6 +10,9 @@ import { Meal } from './interfaces';
 export class AppComponent implements OnInit {
   title = 'meal-for';
 
+  tabs = ['Restaurant', 'Order In', 'Customize'];
+  activeTab: string = this.tabs[1];
+
   menu: Meal[] = null;
 
   constructor(private http: HttpClient) {}
@@ -23,5 +26,9 @@ export class AppComponent implements OnInit {
       if (!res) return;
       this.menu = res;
     });
+  }
+
+  setTab(tab: string) {
+    this.activeTab = tab;
   }
 }

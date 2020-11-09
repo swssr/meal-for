@@ -1,1 +1,11 @@
-<p>nav-bottom works!</p>
+<nav class="nav nav--bottom">
+  <div
+    *ngFor="let page of pages"
+    class="link"
+    [ngClass]="{ 'link--active': currentPage === page.label }"
+    (click)="setPage(page.label)"
+  >
+    <div class="link__text">{{ page.label }}</div>
+    <img [src]="page.img" [alt]="page.label" class="link__icon" />
+  </div>
+</nav>

@@ -1,11 +1,25 @@
 <main>
   <header>
     <div class="greeting"><strong>Hello</strong> There</div>
-    <p>What are you having today</p>
+    <p>How do you want to eat today?</p>
   </header>
-  <div class="list">
-    <app-card *ngFor="let meal of menu" [meal]="meal"></app-card>
-    <div class="spacer scaper--mid"></div>
+  <div class="tab-wrapper">
+    <div class="tabs">
+      <div
+        *ngFor="let tab of tabs"
+        class="tab"
+        (click)="setTab(tab)"
+        [ngClass]="{ 'tab--active': activeTab === tab }"
+      >
+        {{ tab }}
+      </div>
+    </div>
+    <div class="tab-content" *ngIf="activeTab === 'Order In'">
+      <div class="list">
+        <app-card *ngFor="let meal of menu" [meal]="meal"></app-card>
+      </div>
+      <div class="spacer spacer--mid"></div>
+    </div>
   </div>
 </main>
 <app-nav-bottom></app-nav-bottom>

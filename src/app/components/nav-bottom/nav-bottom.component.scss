@@ -1,0 +1,44 @@
+.nav {
+  display: flex;
+  & * {
+    transition: 400ms all;
+  }
+  &--bottom {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(#000, 0.1);
+    padding: 1em 2em;
+    justify-content: space-between;
+  }
+}
+
+.link {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  --s: 1.2em;
+  opacity: 0.56;
+  &__icon {
+    width: var(--s);
+    height: var(--s);
+    flex: 1;
+    margin-right: 0.5em;
+  }
+  &__text {
+    width: 0;
+    height: var(--s);
+    opacity: 0;
+    overflow: hidden;
+    transition: 200ms;
+    font-size: 14px;
+  }
+}
+.link--active {
+  opacity: 1;
+  .link__text {
+    opacity: 1;
+    width: 100%;
+  }
+}
