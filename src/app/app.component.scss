@@ -53,3 +53,15 @@ header {
     flex-shrink: 0;
   }
 }
+.banner {
+  width: 70vw;
+  height: 60vh;
+  background-color: #c2c2c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-left: 1em;
+}

@@ -22,9 +22,16 @@
     </div>
     <div class="tab-content" *ngIf="activeTab === 'Restaurant'">
       <div class="list">
-        <app-card>
-          <app-card *ngFor="let data of menu" [data]="data"></app-card>
-        </app-card>
+        <app-card
+          *ngFor="let restaurant of restaurants"
+          [data]="restaurant"
+        ></app-card>
+      </div>
+    </div>
+
+    <div class="tab-content" *ngIf="activeTab === 'Customize'">
+      <div class="banner">
+        <h5>Comming Soon!</h5>
       </div>
     </div>
   </div>
