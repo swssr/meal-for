@@ -16,9 +16,16 @@
     </div>
     <div class="tab-content" *ngIf="activeTab === 'Order In'">
       <div class="list">
-        <app-card *ngFor="let meal of menu" [meal]="meal"></app-card>
+        <app-card *ngFor="let data of menu" [data]="data"></app-card>
       </div>
       <div class="spacer spacer--mid"></div>
+    </div>
+    <div class="tab-content" *ngIf="activeTab === 'Restaurant'">
+      <div class="list">
+        <app-card>
+          <app-card *ngFor="let data of menu" [data]="data"></app-card>
+        </app-card>
+      </div>
     </div>
   </div>
 </main>

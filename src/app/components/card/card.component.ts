@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { Meal } from 'src/app/interfaces';
+// import { Meal } from 'src/app/interfaces';
+import { API_URL } from '../../../config/';
 
 @Component({
   selector: 'app-card',
@@ -8,34 +9,25 @@ import { Meal } from 'src/app/interfaces';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input() meal: Meal;
+  @Input() data: any;
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 
-  handleBuy(_meal: Meal) {
+  handleBuy(_data: any) {
     const data = {
-      SiteCode: 'L5BBE^dVnedQDnTFfzex6_rpHWTDD#npcK4Zqv*e',
-      CountryCode: 'SA',
+      SiteCode: 'TSTSTE0001',
+      CountryCode: 'ZA',
       CurrencyCode: 'ZAR',
-      Amount: _meal.amount,
-      TransactionReference: 'dVnedQDnTFfzex6_rpHWTDD#npcK4Zqv*e',
+      Amount: _data.amount || 10.0,
       IsTest: true,
-      HashCheck:
-        'VnedQDnTFfzex6_rpHWTDD#npcK4Zqv*eBE^dVnedQDnTFfzex6_rpHWTDD#npcK4Zqv*e',
-      NotifyUrl: 'https://api.tablefor.app/confirm_payment',
+      privateKey: '215114531AFF7134A94C88CEEA48E',
+      NotifyUrl: `${API_URL}/notify`,
     };
 
-    const options = {};
-
-    this.http
-      .post('https://pay.ozow.com', data, options)
-      .toPromise()
-      .then((value) => {
-        console.log({ value });
-      })
-      .catch((err) => {
-        console.log({ err });
-      });
+    this.http.post(`${API_URL}/pay`, data).subscribe({
+      error: console.log,
+      complete: console.log,
+    });
   }
 }

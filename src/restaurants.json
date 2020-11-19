@@ -1,0 +1,46 @@
+{
+  "restaurants": [
+    {
+      "emails": ["simocmo4@gmail.com"],
+      "merchantId": null,
+      "seatsAvailable": 45,
+      "bookings": [
+        "5f732203a99e2a7c6c6300eb",
+        "5f762cd03a996100132eb75e",
+        "5f76ee42c63bdb0013922ee0",
+        "5f76ef6dc63bdb0013922ee2",
+        "5f77018d9ae33100140121d9",
+        "5f7709ce4a49ed001451123c",
+        "5f7709cf4a49ed001451123e",
+        "5f774dcccc91830014951248",
+        "5f969b0a3c6d6b001370b98f",
+        "5f96af8df76b720013da2f60",
+        "5f96d2851af6cd0013cfe646",
+        "5f96d2861af6cd0013cfe648",
+        "5f96d2871af6cd0013cfe64a",
+        "5f97000dd97c88001303de3b",
+        "5f970c9056ce660013002f0b",
+        "5f971ef8442aa70013f5aa41"
+      ],
+      "numLocations": 2,
+      "verified": true,
+      "pictures": [],
+      "hidden": false,
+      "archived": false,
+      "_id": "5f5d31c20b1c8d1ed9aec450",
+      "name": "Isorri",
+      "registration": "12526981-0772-4213-a347-a99ec9a3cd9c",
+      "cuisine": "African Food",
+      "menu": [],
+      "locations": [{ "_id": "5f5d31c30b1c8d1ed9aec452" }],
+      "branches": [
+        {
+          "_id": "5f5d31c40b1c8d1ed9aec454",
+          "locationId": "5f5d31c30b1c8d1ed9aec452"
+        }
+      ],
+      "awards": [],
+      "__v": 1
+    }
+  ]
+}

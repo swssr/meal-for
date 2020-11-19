@@ -1,8 +1,8 @@
 <figure class="card">
-  <img [src]="meal.img" [alt]="meal.name" />
+  <img [src]="data.img" [alt]="data.name" />
   <figcaption>
-    <h3>{{ meal.name }}</h3>
-    <p>{{ meal.description }}</p>
-    <button (click)="handleBuy(meal)">BUY!</button>
+    <h3>{{ data.name }}</h3>
+    <p>{{ data.description }}</p>
+    <button (click)="handleBuy(data)">BUY!</button>
   </figcaption>
 </figure>
