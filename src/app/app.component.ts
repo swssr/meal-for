@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { API_URL } from 'src/config';
 import { Meal } from './interfaces';
 import { Restaurant } from './interfaces/restaurant';
+import { UIContextService } from './services/ui-context.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'meal-for';
 
   tabs = ['Restaurant', 'Order In', 'Customize'];
@@ -18,11 +19,24 @@ export class AppComponent implements OnInit {
   menu: Meal[] = null;
   restaurants: Restaurant[] = null;
 
-  constructor(private http: HttpClient) {}
+  subs;
+
+  modalData;
+
+  constructor(private http: HttpClient, private uicontext: UIContextService) {}
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
     this.getMenu();
     this.getRestaurants();
+
+    this.uicontext.modalData.subscribe((data) => {
+      if (data) {
+        this.modalData = data;
+      }
+    });
   }
 
   async getMenu() {
