@@ -27,32 +27,29 @@ export class CardComponent {
       SiteCode: 'TSTSTE0001',
       CountryCode: 'ZA',
       CurrencyCode: 'ZAR',
-      Amount: _data.amount,
-      IsTest: true,
+      Amount: 700,
       privateKey: '215114531AFF7134A94C88CEEA48E',
+      IsTest: true,
       // NotifyUrl: `${API_URL}/notify`,
     };
 
-    this.httpHeaders = new HttpHeaders();
-    this.httpHeaders.set(
-      'Accept',
-      'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-    );
-
     this.http
-      .post(`${API_URL}/pay`, data, { headers: this.httpHeaders })
+      .post(`${API_URL}/pay`, data)
       .toPromise()
       .then((res: any) => {
         console.log('INSIDE RESPONSE!');
-        this.html = res?.error.text;
-
+        console.log({ res });
+        // this.html = res?.error.text;
+        // window.location.href = error.error?.text;
         this.uicontext.modalData.next(this.html);
       })
-      .catch((error: HttpErrorResponse) => {
+      .catch((error: any) => {
         console.log('INSIDE ERROR!');
-        console.log(error);
+        console.log({ error });
+
         this.html = error.error?.text;
 
+        window.location.href = error.error?.text;
         this.uicontext.modalData.next(this.html);
       });
   }
