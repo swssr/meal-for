@@ -30,7 +30,7 @@ export class CardComponent {
       Amount: _data.amount,
       IsTest: true,
       privateKey: '215114531AFF7134A94C88CEEA48E',
-      NotifyUrl: `${API_URL}/notify`,
+      // NotifyUrl: `${API_URL}/notify`,
     };
 
     this.httpHeaders = new HttpHeaders();
