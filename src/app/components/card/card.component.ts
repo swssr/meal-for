@@ -22,17 +22,15 @@ export class CardComponent {
 
   ngOnInit(): void {}
 
-  handleBuy(_data: any) {
+  async handleBuy(_data: any) {
     const data = {
-      SiteCode: 'TSTSTE0001',
-      CountryCode: 'ZA',
-      CurrencyCode: 'ZAR',
+      BankReference: 'MealFor ' + _data.name,
+      TransactionReference: 'MealFor ' + _data.name,
       Amount: 700,
-      privateKey: '215114531AFF7134A94C88CEEA48E',
-      IsTest: true,
       // NotifyUrl: `${API_URL}/notify`,
     };
 
+    // await window["postToServer"](data)
     this.http
       .post(`${API_URL}/pay`, data)
       .toPromise()
@@ -49,7 +47,7 @@ export class CardComponent {
 
         this.html = error.error?.text;
 
-        window.location.href = error.error?.text;
+        // window.location.href = error.error?.text;
         this.uicontext.modalData.next(this.html);
       });
   }
