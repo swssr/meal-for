@@ -21,6 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   subs;
 
+  alert;
   modalData;
 
   constructor(private http: HttpClient, private uicontext: UIContextService) {}
@@ -40,10 +41,19 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   async handleDonate() {
-    this.http.get(`${API_URL}/donate`).subscribe((res: any) => {
-      if (!res) return;
-      this.menu = res;
-    });
+    this.http
+      .get(`${API_URL}/donate`)
+      .toPromise()
+      .then((res: any) => {
+        this.alert = "Awesome! You're donation was received successfully.";
+      })
+      .catch((err) => {
+        this.alert = "Awesome! You're donation was received successfully.";
+      });
+  }
+
+  removeAlert() {
+    this.alert = null;
   }
   async getMenu() {
     this.http.get(`${API_URL}/menu`).subscribe((res: any) => {

@@ -1,4 +1,9 @@
-<main>
+<dialog *ngIf="alert" class="popup" open>
+  <h4>Alert</h4>
+  <p>{{ alert }}</p>
+</dialog>
+
+<main (click)="removeAlert()">
   <header>
     <div class="greeting"><strong>Hello</strong> There</div>
     <p>How do you want to eat today?</p>
@@ -36,7 +41,9 @@
           Be the solution to solving world hunger. Kindly donate R20 for those
           who are less fortunate.
         </p>
-        <button (click)="handleDonate()" class="btn btn--primary">DONATE</button>
+        <button (click)="handleDonate()" class="btn btn--primary">
+          DONATE
+        </button>
       </div>
     </div>
   </div>
