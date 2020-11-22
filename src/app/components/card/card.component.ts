@@ -24,8 +24,8 @@ export class CardComponent {
 
   async handleBuy(_data: any) {
     const data = {
-      BankReference: 'MealFor ' + _data.name,
-      TransactionReference: 'MealFor ' + _data.name,
+      BankReference: 'MF',
+      TransactionReference: 'MF',
       Amount: 700,
       // NotifyUrl: `${API_URL}/notify`,
     };
@@ -38,7 +38,7 @@ export class CardComponent {
         console.log('INSIDE RESPONSE!');
         console.log({ res });
         // this.html = res?.error.text;
-        // window.location.href = error.error?.text;
+        window.location.href = res;
         this.uicontext.modalData.next(this.html);
       })
       .catch((error: any) => {
@@ -47,7 +47,7 @@ export class CardComponent {
 
         this.html = error.error?.text;
 
-        // window.location.href = error.error?.text;
+        window.location.href = error.error?.text;
         this.uicontext.modalData.next(this.html);
       });
   }
