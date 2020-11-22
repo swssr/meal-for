@@ -43,6 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.http.get(`${API_URL}/donate`).subscribe((res: any) => {
       if (!res) return;
       this.menu = res;
+      alert("Awesome! You're donation was received successfully.");
     });
   }
   async getMenu() {
