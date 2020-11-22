@@ -24,20 +24,17 @@ export class CardComponent {
 
   async handleBuy(_data: any) {
     const data = {
-      BankReference: 'MF',
-      TransactionReference: 'MF',
-      Amount: 700,
-      // NotifyUrl: `${API_URL}/notify`,
+      BankReference: `MFOrder001`,
+      TransactionReference: `MFOrder001`,
+      Amount: _data.price,
     };
 
-    // await window["postToServer"](data)
     this.http
       .post(`${API_URL}/pay`, data)
       .toPromise()
       .then((res: any) => {
         console.log('INSIDE RESPONSE!');
         console.log({ res });
-        // this.html = res?.error.text;
         window.location.href = res;
         this.uicontext.modalData.next(this.html);
       })
