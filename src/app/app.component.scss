@@ -1,6 +1,8 @@
 main {
+  position: relative;
   padding: 1.5em;
   padding-top: 3em;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
@@ -76,4 +78,22 @@ header {
   &--primary {
     background-color: #000;
   }
+}
+.popup {
+  position: fixed;
+  width: 70vw;
+  height: 20vh;
+  background-color: #000;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+}
+.popup ~ * {
+  // filter: brightness(0.8);
+  opacity: 0.56;
 }
