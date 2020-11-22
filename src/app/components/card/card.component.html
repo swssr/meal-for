@@ -17,6 +17,8 @@
         ><strong>R{{ data?.price }}</strong></span
       >
     </p>
-    <button (click)="handleBuy(data)">BUY!</button>
+    <button (click)="handleBuy(data)">
+      {{ data?.seatsAvailable ? "COMMING SOON" : "BUY!" }}
+    </button>
   </figcaption>
 </figure>
