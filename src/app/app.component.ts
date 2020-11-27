@@ -45,10 +45,12 @@ export class AppComponent implements OnInit, OnDestroy {
       .get(`${API_URL}/donate`)
       .toPromise()
       .then((res: any) => {
-        this.alert = "Awesome! You're donation was received successfully.";
+        this.alert =
+          'Awesome! Your donation payment link was sent successfully.';
       })
       .catch((err) => {
-        this.alert = "Awesome! You're donation was received successfully.";
+        this.alert =
+          'Awesome! Your donation payment link was sent successfully.';
       });
   }
 
